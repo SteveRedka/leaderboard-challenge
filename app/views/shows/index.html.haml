@@ -1,0 +1,14 @@
+%h1 Top 10 Shows by average score
+%br
+%table.table.table-bordered.table-striped
+  %thead.thead-dark
+    %tr
+      %th Title
+      %th avg_score
+      %th reviews_count
+  %tbody
+    - @shows.each do |show|
+      %tr
+        %td= show.title
+        %td= show.avg_score.round(1)
+        %td= show.reviews_count
