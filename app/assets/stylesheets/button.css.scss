@@ -1,0 +1,40 @@
+$button-container-background: #eee;
+$button-text-color: #fff;
+$button-background-top: #07575b;
+$button-background-bottom: #66a5ad;
+$button-border-top-color: #ffbb00;
+$button-border-bottom-color: #a43820;
+
+.button-container {
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  background-color: $button-container-background;
+}
+
+/* Solution */
+$border-radius: 15px;
+$gradient-border-width: 2px;
+
+.button-container {
+  .btn {
+    background: linear-gradient($button-border-top-color, $button-border-bottom-color);
+    position: relative;
+    color: $button-text-color;
+    border: 4px solid transparent;
+    border-radius: $border-radius;
+    background-clip: padding-box;
+    z-index: 2;
+    &::after {
+      position: absolute;
+      top: $gradient-border-width;
+      bottom: $gradient-border-width;
+      left: $gradient-border-width;
+      right: $gradient-border-width;
+      background: linear-gradient($button-background-top, $button-background-bottom);
+      content: '';
+      z-index: -1;
+      border-radius: $border-radius - 4px;
+    }
+  };
+}
