@@ -1,2 +1,8 @@
-document.getElementById('top-shows-table-container').innerHTML = ("<%= j render partial: 'shows/top_shows_table' %>");
-CommentPoller.poll();
+setTimeout(
+  function() {
+    document.getElementById('top-shows-table-container')
+            .innerHTML = ("<%= escape_javascript(render partial: 'shows/top_shows_table') %>")
+  },
+  1500)
+
+
